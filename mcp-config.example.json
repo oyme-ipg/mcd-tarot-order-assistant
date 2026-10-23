@@ -1,0 +1,53 @@
+{
+  "_README": "麦当劳塔罗运势（mcd-tarot-fortune）的 MCP 配置示例 · 复制本文件为 mcp.json 后填入真实值。",
+  "_IMPORTANT": "本文件是【模板】。command / args / url / env 键名均为占位示例，真实值一律以麦当劳点餐 MCP 提供方的官方文档为准，不要直接照抄。本技能 offline_capable=true，不配 MCP 也能完整跑占卜，配置只是为了价格校准与下单。",
+  "_where": "WorkBuddy 的 MCP 配置位于 ~/.workbuddy/mcp.json（注意不是 .mcp.json）。把下面 mcpServers 里的内容合并进该文件的 mcpServers 对象，然后在连接器管理页对新服务点「信任」启用；若麦当劳点餐已作为内置连接器提供，直接在连接器里启用即可，无需手写本文件。",
+
+  "mcpServers": {
+    "mcd-mcp": {
+      "_description": "麦当劳点餐 MCP —— 与 mcp_declaration.json 中的 provider 对应",
+      "_transport": "stdio（本地进程）｜若提供方给的是远程服务，改用下面 _alternative_http 的写法",
+      "command": "npx",
+      "args": ["-y", "<提供方给出的包名>@latest"],
+      "env": {
+        "MCD_ACCESS_TOKEN": "<你的访问令牌 · 不要提交进版本库>",
+        "MCD_DEFAULT_CITY": "上海",
+        "MCD_DEFAULT_BE_TYPE": "1"
+      },
+      "disabled": false,
+      "timeout": 30000
+    }
+  },
+
+  "_alternative_http": {
+    "mcd-mcp": {
+      "_description": "远程 MCP（HTTP / SSE）写法，二选一，不要同时启用两个同名服务",
+      "url": "https://<提供方域名>/mcp",
+      "headers": {
+        "Authorization": "Bearer <你的访问令牌>"
+      },
+      "disabled": false
+    }
+  },
+
+  "_skill_binding": {
+    "skill": "mcd-tarot-fortune",
+    "required": false,
+    "required_by": ["价格校准", "真实下单"],
+    "tools_allowlist": [
+      "query-nearby-stores",
+      "delivery-query-stores",
+      "query-meals",
+      "query-meal-detail",
+      "calculate-price",
+      "available-coupons"
+    ],
+    "tools_require_confirmation": ["create-order"],
+    "notes": [
+      "auto_execute 的工具可自行调用；create-order 必须等用户明确说「下单 / 确认」",
+      "calculate-price 返回金额单位为【分】，展示前 ÷100",
+      "beType=1 到店自提不传 beCode，传了会报错；beType=5/2/6 必须传 beCode",
+      "MCP 不可用时回退内置门店 1450713 的快照价，占卜流程不受影响"
+    ]
+  }
+}
