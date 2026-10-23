@@ -18,6 +18,17 @@
 
 ---
 
+## 1.5 配置接入
+
+MCP 提供者名为 `mcd-mcp`（见 `mcp_declaration.json`）。两种接法：
+
+1. **内置连接器**：在连接器管理里启用麦当劳点餐即可，无需手写配置。
+2. **手写配置**：参考 [`mcp-config.example.json`](mcp-config.example.json)，把 `mcpServers.mcd-mcp` 合并进 `~/.workbuddy/mcp.json`（不是 `.mcp.json`），然后到连接器管理页对新服务点「信任」启用。
+
+模板里的 `command / args / url / env` 均为**占位示例**，真实值以提供方官方文档为准。
+
+---
+
 ## 2. 触发判断（先看这个）
 
 | 用户说了什么 | 走哪条 | 调不调 MCP |
@@ -98,10 +109,14 @@
 | 本技能 | MCP | 备注 |
 | --- | --- | --- |
 | `item.sku` | `productCode` / 菜单里的商品 `code` | 22 个 SKU 全部来自官方菜单，可直接匹配 |
-| `item.price`（元，快照） | `currentPrice` | **单位不同**：MCP 返回「分」，展示 ÷100 |
+| `item.price`（元，快照） | `query-meals` 的 `currentPrice` | **同为元**（字符串，如 `"25.5"`）→ 直接覆盖展示，**不要 ÷100** |
 | `meta.source_store.storeCode` | `storeCode` | 快照默认 1450713 |
 | `meta.source_store.storeName` | `storeName` | 覆盖脚注门店名 |
 | — | `originalPrice` | 用于显示「原价 X，现优惠中」 |
+| — | `calculate-price` 的 `price` / `productPrice` | **单位为分**（整数，如 `2550`）→ 展示前 ÷100 |
+
+> ⚠️ **单位陷阱（2026-10-23 实测确认）**：`query-meals` 的 `currentPrice` 是**元**，`calculate-price` 的 `price` 是**分**，两者不同。
+> 早期版本本表误将 `currentPrice` 标为「分」，照做会把 ¥25.5 的巨无霸显示成 ¥0.255。
 
 ---
 
@@ -123,11 +138,11 @@
 
 ## 8. 与 SKILL.md 的分工
 
-- `SKILL.md` —— 面向 Agent 的交互协议（Stage 0-4、话术、边界），**不写具体接口细节**。
-- `mcp_integration.md`（本文件）—— 面向实现的价格校准与下单调用链。
+- `SKILL.md` —— 面向 Agent 的交互协议（Stage 0-5、话术、边界）。**Stage 5 直接内联了可执行的 MCP 工具名与入参**，Agent 不读本文件也能完成价格校准。
+- `mcp_integration.md`（本文件）—— 降级策略、外送/团餐链路、完整错误处理，作为 Stage 5 的扩展参考。
 - `mcp_declaration.json` —— 面向工具链的依赖声明（工具清单、权限、fallback）。
 
-SKILL.md 中「用麦当劳点餐能力重新查一次实时价格」一句，具体落地步骤以本文件为准。
+> 2026-10-23 修订：此前「SKILL.md 不写接口细节、落地全看本文件」的分工导致**执行链断链**——Agent 跑占卜时不会来读这个文件，MCP 永远不会被调用。现改为在 SKILL.md 的 Stage 5 写死工具名。
 
 ---
 

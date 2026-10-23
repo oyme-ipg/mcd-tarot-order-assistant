@@ -73,6 +73,7 @@ mcd-tarot-fortune/
 ├── SKILL.md                     # 技能主文件：交互协议、话术、边界（Agent 加载入口）
 ├── README.md                    # 本文件：人读的说明
 ├── mcp_declaration.json         # MCP 依赖声明（机器可读）
+├── mcp-config.example.json      # MCP 配置模板（占位示例，填真实值后合并进 ~/.workbuddy/mcp.json）
 ├── mcp_integration.md           # 与麦当劳点餐 MCP 的集成流程与降级策略
 ├── scripts/
 │   └── fortune.py               # 全部逻辑：月相算法 / 星座灵数 / 评分 / 抽牌 / 渲染（895 行）
@@ -124,7 +125,13 @@ mcd-tarot-fortune/
 1. **价格校准** — 用户问本地实时价
 2. **真实下单** — 用户明确要买
 
-详见 [mcp_declaration.json](mcp_declaration.json)（声明依赖哪些工具、权限边界）与 [mcp_integration.md](mcp_integration.md)（调用链、字段映射、降级策略）。
+详见三份配套文件：
+
+| 文件 | 作用 |
+| --- | --- |
+| [mcp_declaration.json](mcp_declaration.json) | 声明依赖哪些工具、触发时机、权限边界、降级策略（机器可读） |
+| [mcp-config.example.json](mcp-config.example.json) | MCP 配置模板：stdio / HTTP 两种写法 + 技能侧工具白名单（**值为占位，需替换**） |
+| [mcp_integration.md](mcp_integration.md) | 价格校准与下单的完整调用链、字段映射、错误处理 |
 
 ---
 

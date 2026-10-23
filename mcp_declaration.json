@@ -99,7 +99,8 @@
       "item.sku": "query-meals 返回的商品 code / calculate-price 的 productCode"
     },
     "mcp_to_skill": {
-      "currentPrice": "覆盖 item.price 展示，单位分 → 元（÷100）",
+      "query-meals.currentPrice": "覆盖 item.price 展示，单位就是【元】（字符串如 \"25.5\"），直接采用，不要 ÷100",
+      "calculate-price.price": "实付价，单位为【分】（整数如 2550），展示前 ÷100",
       "storeCode": "覆盖 meta.source_store 展示",
       "storeName": "覆盖价格脚注中的门店名"
     }

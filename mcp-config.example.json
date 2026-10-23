@@ -10,7 +10,7 @@
       "command": "npx",
       "args": ["-y", "<提供方给出的包名>@latest"],
       "env": {
-        "MCD_ACCESS_TOKEN": "${MCD_ACCESS_TOKEN}",
+        "MCD_ACCESS_TOKEN": "<你的访问令牌 · 不要提交进版本库>",
         "MCD_DEFAULT_CITY": "上海",
         "MCD_DEFAULT_BE_TYPE": "1"
       },

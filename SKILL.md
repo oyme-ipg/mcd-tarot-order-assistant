@@ -73,6 +73,34 @@ $PY scripts/fortune.py draw --number 7
 - 抽牌历史会自动记录在 `data/user_profiles.json` 的 `draw_history` 里（最多保留 100 条）。
 - 用户想直接看全部对应表（会剧透），跑 `python3 scripts/fortune.py cards`。
 
+### Stage 5 · 价格校准（仅当用户主动问价时才触发）
+
+> 占卜流程（Stage 0-4）**不需要**也不应该调用 MCP。只有用户明确问「我这附近多少钱」「我这边是不是这个价」「现在还卖吗」时，才走这一步。
+
+```text
+① mcp__mcd-mcp__query-nearby-stores
+   beType=1（到店自提）/ 5（得来速），searchType=2，city=<用户城市>，keyword=<地标或商圈>
+   → 展示门店列表让用户选，取 storeCode（beType=5 时还要取 beCode）
+
+② mcp__mcd-mcp__query-meals
+   storeCode=<上一步的 storeCode>，orderType=1，beType=<与 ① 相同>
+   ⚠️ beType=1 时不要传 beCode，传了会报错
+   → 在返回菜单里按 item.sku 匹配 code
+   → 用该店 currentPrice 覆盖展示价
+   ⚠️ currentPrice 单位是【元】（字符串如 "25.5"），直接采用，不要 ÷100
+
+③ 可选 mcp__mcd-mcp__calculate-price
+   items=[{"productCode": <sku>, "quantity": 1}]
+   → 拿含优惠的实付价
+   ⚠️ 这个接口单位是【分】（整数如 2550），展示前必须 ÷100
+```
+
+**两个接口单位不同，别搞混：`query-meals` 给元，`calculate-price` 给分。**
+
+覆盖价格后把脚注换成：`💡 实时价取自{storeName}（{storeCode}），查询于 {此刻}。` 若与快照价不同，补一句原因（城市差异 / 渠道差异 / 时段优惠），**以实时价为准**。
+
+降级：门店查不到 → 回退快照门店 1450713 并说明；菜单拉不到 → 保留快照价 + 免责脚注；SKU 在该店匹配不到 → 如实说不可售，推荐同价位替代牌，**不要编 SKU**。
+
 ---
 
 ## 🛠 命令速查
@@ -112,7 +140,7 @@ $PY scripts/fortune.py moon [--date YYYY-MM-DD]
 价格**可能**随城市、渠道和时间浮动，因此：
 
 1. 展示时保留脚本给出的价格来源脚注，不要删掉免责说明。
-2. 用户明确问「我这附近多少钱」或想真的下单时，用麦当劳点餐能力重新查一次实时价格（按用户城市 + 关键词搜门店 → 拉该门店菜单 → 用返回的 `currentPrice` 覆盖展示），并以实时价为准。
+2. 用户明确问「我这附近多少钱」或想真的下单时，走 **Stage 5 · 价格校准**，调用麦当劳点餐 MCP 重新查一次实时价格，并以实时价为准。
 3. 若某商品已下架，保持映射不变，如实告知「这款现在下架了」，并推荐同价位替代品，不要编 SKU。
 
 ---
@@ -140,9 +168,15 @@ $PY scripts/fortune.py moon [--date YYYY-MM-DD]
 
 ```
 mcd-tarot-fortune/
-├── SKILL.md
-├── scripts/fortune.py          # 月相算法 + 星座/灵数 + 评分 + 抽牌 + 渲染
+├── SKILL.md                    # 交互协议 Stage 0-5（Stage 5 = MCP 价格校准，含工具名）
+├── README.md                   # 人类向说明
+├── mcp_integration.md          # 降级策略 / 外送与下单链路（Stage 5 的扩展参考）
+├── mcp_declaration.json        # MCP 依赖声明（工具清单、权限、fallback）
+├── mcp-config.example.json     # MCP 配置模板（当前环境已接入，换机时才用）
+├── scripts/fortune.py          # 月相算法 + 星座/灵数 + 评分 + 抽牌 + 渲染（纯离线）
 └── data/
     ├── tarot_cards.json        # 22 张大阿尔卡那 ↔ 麦当劳商品固定映射（含正逆位释义）
     └── user_profiles.json      # 用户档案与抽牌历史（自动生成）
 ```
+
+> 执行体只有 `fortune.py`，它**不联网**。MCP 调用发生在 Agent 侧的 Stage 5，由 Agent 按步骤直接调，不经过脚本。
