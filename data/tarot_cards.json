@@ -1,0 +1,586 @@
+{
+  "meta": {
+    "source": "麦当劳中国官方菜单（到店自提）",
+    "source_store": {
+      "storeCode": "1450713",
+      "storeName": "麦当劳上海黄浦华旭国际大厦餐厅",
+      "city": "上海"
+    },
+    "captured_at": "2026-10-23",
+    "note": "商品名称、图片、价格取自官方菜单接口实时返回值。价格为上海指定门店到店自提价，其他城市/外送场景可能浮动 ±10%，请以当店当日实际结算价为准。若遇到商品下架或价格变动，可用麦当劳点餐能力重新校准。"
+  },
+  "cards": [
+    {
+      "choice": 1,
+      "id": 0,
+      "name": "愚者",
+      "en": "The Fool",
+      "roman": "0",
+      "element": "风",
+      "mood": "轻盈·出发",
+      "keywords": [
+        "新的开始",
+        "无限可能",
+        "不带预设"
+      ],
+      "upright": "牌面是一个人轻装站在悬崖边，手握一朵白玫瑰，脚下是万丈可能。今天你会收到一个「听起来不太稳妥」的邀请或灵感，别急着用经验否定它——愚者的力量恰恰来自「不知道这件事很难」。先迈半步，路会在脚底下长出来。",
+      "reversed": "逆位的愚者提醒你：轻盈不等于鲁莽。今天容易在多件事之间跳来跳去，最后一件事都没落地。先挑一件最小的完成它，把「开始」变成「完成的开始」。",
+      "pair_reason": "愚者只有一朵白玫瑰和一身轻装，最纯粹的甜就配最纯粹的出发感——不需要理由，不需要仪式，一支冰淇淋就是重新开始的许可证。",
+      "item": {
+        "sku": "515837",
+        "name": "圆筒冰淇淋",
+        "price": 5.0,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G515837_320.png",
+        "category": "冰淇淋"
+      },
+      "dim": "career"
+    },
+    {
+      "choice": 2,
+      "id": 1,
+      "name": "魔术师",
+      "en": "The Magician",
+      "roman": "I",
+      "element": "水星",
+      "mood": "显化·转化",
+      "keywords": [
+        "把想法落地",
+        "资源整合",
+        "手到擒来"
+      ],
+      "upright": "桌上有四样法器，眼前有一双手。这张牌出现时，你已经具备做成这件事的全部条件，缺的只是「开始调配」。今天非常适合谈事、报价、写方案、调试、把混乱的东西重新排列组合——你说的话今天特别有分量，别浪费在闲聊上。",
+      "reversed": "逆位的魔术师是在提醒你别玩虚的。今天容易有「包装过度、交付不足」的倾向，或者在多个选择里挑花了眼。收回注意力，只兑现一个承诺给别人看。",
+      "pair_reason": "奶昔是把简单的原料高速搅打成全新口感的过程，和魔术师「把既有资源转化成想要的形态」一模一样。",
+      "item": {
+        "sku": "9900014092",
+        "name": "麦当劳奶昔",
+        "price": 15.0,
+        "original_price": 22.0,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900014092_320.gif",
+        "category": "饮品"
+      },
+      "dim": "career"
+    },
+    {
+      "choice": 3,
+      "id": 2,
+      "name": "女祭司",
+      "en": "The High Priestess",
+      "roman": "II",
+      "element": "月亮",
+      "mood": "直觉·留白",
+      "keywords": [
+        "相信直觉",
+        "先别说破",
+        "暗中蓄力"
+      ],
+      "upright": "她坐在黑白两根柱子之间，脚下有一弯月，怀里是没完全展开的卷轴——有些答案今天不会明着给你。今天的信息来自直觉、梦境、别人话里的缝隙。适合听、适合观察、适合把想法藏着发酵，不适合急着摊牌。",
+      "reversed": "逆位的女祭司是「忽略了内心那个早就在响的闹钟」。你其实知道答案，只是不想承认。今天别再向外求确认了，安静十分钟，第一反应就是对的那个。",
+      "pair_reason": "「月下相思」这个名字本身就是月亮的牌意，一圈圈扭起来的形状像没说出口的心事——有些情绪要慢慢旋着吃掉，才够味。",
+      "item": {
+        "sku": "521901",
+        "name": "月下相思扭扭薯",
+        "price": 15.0,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521901_320.png",
+        "category": "小食"
+      },
+      "dim": "love"
+    },
+    {
+      "choice": 4,
+      "id": 3,
+      "name": "皇后",
+      "en": "The Empress",
+      "roman": "III",
+      "element": "金星",
+      "mood": "丰盛·滋养",
+      "keywords": [
+        "收获兑现",
+        "被照顾好",
+        "审美在线"
+      ],
+      "upright": "她坐在麦田里，脚下是成熟的谷物。这是一张「付出开始结果」的牌——之前埋下的种子今天能看到芽。适合收钱、接收夸奖、好好吃一顿、照顾身体，也适合做跟「美」有关的决定。今天的丰盛感来自你肯不肯先照顾好自己。",
+      "reversed": "逆位的皇后多半是照顾了所有人，唯独漏了自己。今天容易出现过度付出后的空转感，先把自己的能量槽加满，再谈输出。",
+      "pair_reason": "金黄的玉米粒就是牌面那片成熟的麦田——皇后从不亏待自己，甜脆的一小杯，是把收获感实打实放进嘴里。",
+      "item": {
+        "sku": "4437",
+        "name": "玉米杯",
+        "price": 13.0,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G4437_320.png",
+        "category": "小食"
+      },
+      "dim": "wealth"
+    },
+    {
+      "choice": 5,
+      "id": 4,
+      "name": "皇帝",
+      "en": "The Emperor",
+      "roman": "IV",
+      "element": "白羊座",
+      "mood": "掌控·定规则",
+      "keywords": [
+        "结构性",
+        "说一不二",
+        "边界感"
+      ],
+      "upright": "他坐在方正的石座上，背后是山。今天需要你拿出「定标准」的那一部分：定流程、定边界、定预算、定deadline。别人今天更容易接受你给出的秩序感，把话说清楚比说得温柔更重要。",
+      "reversed": "逆位的皇帝是僵化的秩序：流程在消耗人、强撑的控制感已经很累。今天允许自己破一次例，规则是可以改的，尤其当它已经不服务任何人。",
+      "pair_reason": "巨无霸是两层饼、三层结构的经典秩序，一口咬下去层次分明——皇帝的能量就是把事情稳稳叠起来，让它屹立不倒。",
+      "item": {
+        "sku": "1100",
+        "name": "巨无霸",
+        "price": 25.5,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260309/product/MS_1100_320.png",
+        "category": "汉堡"
+      },
+      "dim": "career"
+    },
+    {
+      "choice": 6,
+      "id": 5,
+      "name": "教皇",
+      "en": "The Hierophant",
+      "roman": "V",
+      "element": "金牛座",
+      "mood": "传承·指路",
+      "keywords": [
+        "找人请教",
+        "遵循方法",
+        "稳定共识"
+      ],
+      "upright": "他手持三重权杖，面前是两个求教者。今天适合走「已经被验证过的路」：请教前辈、套用成熟模板、读说明书、上系统课。也适合给人意见——你今天说的话，别人愿意照做。",
+      "reversed": "逆位的教皇是「规则未必适合你」。今天适合破一点常规、挑战一下行业默认做法。如果一直按别人教的学却还没起色，问题可能出在课本本身。",
+      "pair_reason": "鱼自古就是信仰与传承的符号，一块方正柔和、几十年不变配方的鱼堡，吃的是「老方法依然管用」的安心。",
+      "item": {
+        "sku": "1600",
+        "name": "麦香鱼",
+        "price": 22.5,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260101/product/MS_1600_320.png",
+        "category": "汉堡"
+      },
+      "dim": "social"
+    },
+    {
+      "choice": 7,
+      "id": 6,
+      "name": "恋人",
+      "en": "The Lovers",
+      "roman": "VI",
+      "element": "双子座",
+      "mood": "联结·选择",
+      "keywords": [
+        "心之所向",
+        "关系升温",
+        "做选择"
+      ],
+      "upright": "两个人在天使之下彼此相对。这张牌既讲关系，也讲选择——今天可能有个人让你心里咯噔一下，或者有件事需要你在两难里挑一边。答案的标准不是利弊，是「哪个让你更像自己」。",
+      "reversed": "逆位的恋人是摇摆与不对齐：一边说着没关系一边在意。今天先把话说到位，不要靠猜，也不要靠试探来验证爱。",
+      "pair_reason": "把薯做成心形，是成年人世界能买到的最直接的浪漫——恋人牌从不含蓄，它就是要你今天把心意摆到台面上。",
+      "item": {
+        "sku": "9900016566",
+        "name": "心形薯饼8块",
+        "price": 9.9,
+        "original_price": 22.5,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016566_320.png",
+        "category": "小食（限时特惠）"
+      },
+      "dim": "love"
+    },
+    {
+      "choice": 8,
+      "id": 7,
+      "name": "战车",
+      "en": "The Chariot",
+      "roman": "VII",
+      "element": "巨蟹座",
+      "mood": "冲刺·驾驭",
+      "keywords": [
+        "高强度推进",
+        "掌控节奏",
+        "拿下目标"
+      ],
+      "upright": "一对方向相反的神兽被缰绳拉住——动力是有的，方向由你说了算。今天是高强度推进日：把最难那件事排在最前面，你会惊讶于自己的速度。别怕冲突，怕的是哪边都想讨好最后原地打转。",
+      "reversed": "逆位的战车是油门和方向盘各干各的。今天容易一路狂奔到错的终点，出发前先花三分钟确认目的地，比事后掉头便宜得多。",
+      "pair_reason": "带火焰感的汉堡，一口下去是被点着的冲劲——战车需要燃料，今天的高强度消耗需要实实在在的补给。",
+      "item": {
+        "sku": "521953",
+        "name": "龙焰芝士棒鸡腿堡",
+        "price": 27.0,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521953_320.png",
+        "category": "汉堡"
+      },
+      "dim": "career"
+    },
+    {
+      "choice": 9,
+      "id": 8,
+      "name": "力量",
+      "en": "Strength",
+      "roman": "VIII",
+      "element": "狮子座",
+      "mood": "温柔的硬撑",
+      "keywords": [
+        "耐心取胜",
+        "柔性控制",
+        "扛得住"
+      ],
+      "upright": "牌面不是勇士搏狮，是少女以花环轻抚狮子。今天真正的强，不是硬碰硬，而是「压住情绪继续做」。适合处理棘手的人、坐冷板凳、做完一件枯燥但关键的事。你的耐心今天会被看见。",
+      "reversed": "逆位的力量是忍耐过头。你已经咬牙很久了，今天不必再硬撑体面，允许自己去休息、去求助、去说「我撑不住」。",
+      "pair_reason": "一整块的扎实口感，是需要花点时间撕咬的底气——力量牌从不是轻盈的，它是厚实、温热、能顶饿的那一类。",
+      "item": {
+        "sku": "521156",
+        "name": "那么大鸡排（椒盐风味）",
+        "price": 14.0,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260101/product/MS_521156_320.png",
+        "category": "炸鸡"
+      },
+      "dim": "health"
+    },
+    {
+      "choice": 10,
+      "id": 9,
+      "name": "隐者",
+      "en": "The Hermit",
+      "roman": "IX",
+      "element": "处女座",
+      "mood": "独处·复盘",
+      "keywords": [
+        "向内看",
+        "一个人想清楚",
+        "慢下来"
+      ],
+      "upright": "他提着一盏灯，独自站在山顶。今天的价值不在社交，而在独处：关掉群聊一小时、整理笔记、把混乱的想法写下来。你想找的答案，别人给不了，只有安静会给。",
+      "reversed": "逆位的隐者是躲得太久了。独处已经从充电变成了逃避，今天只需要一个小动作——回一条消息，就能重新接通世界。",
+      "pair_reason": "一杯没有奶和糖的茶，是给自己泡的，不是招待谁的——隐者的时刻需要一份只属于自己的清饮。",
+      "item": {
+        "sku": "3505",
+        "name": "锡兰红茶",
+        "price": 11.5,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_3505_320.png",
+        "category": "热饮"
+      },
+      "dim": "social"
+    },
+    {
+      "choice": 11,
+      "id": 10,
+      "name": "命运之轮",
+      "en": "Wheel of Fortune",
+      "roman": "X",
+      "element": "木星",
+      "mood": "转机·机缘",
+      "keywords": [
+        "局势要变",
+        "顺势而为",
+        "意外惊喜"
+      ],
+      "upright": "轮子开始转了。今天容易遇到临时的变化、意外的消息、突然出现的机会——多数是好事，只是包装得像麻烦。别执着原计划，能接住变化的人今天吃到红利。",
+      "reversed": "逆位的命运之轮是「同一课上第二次」。某个模式又出现了，这次别再用旧办法。停下重复，才是让轮子重新转起来的那一推。",
+      "pair_reason": "百种组合、随机搭配本身就是轮盘的隐喻——你永远不知道今天这一转能凑出什么惊喜。",
+      "item": {
+        "sku": "9900013304",
+        "name": "人气经典随心配",
+        "price": 14.9,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900013304_320.png",
+        "category": "随心配1+1"
+      },
+      "dim": "wealth"
+    },
+    {
+      "choice": 12,
+      "id": 11,
+      "name": "正义",
+      "en": "Justice",
+      "roman": "XI",
+      "element": "天秤座",
+      "mood": "因果·清算",
+      "keywords": [
+        "该结算了",
+        "公平对等",
+        "承担责任"
+      ],
+      "upright": "她一手持剑一手持天平。今天适合处理合同、报销、对账、道歉或维权——一切跟「公平」有关的事，宇宙站在讲道理的人这边。也提醒你：想要什么结果，就先给出对等的东西。",
+      "reversed": "逆位的正义是有偏的制度、失衡的关系。今天问问自己：我是那个一直多付出的人吗？如果是，今天该调账了。",
+      "pair_reason": "两层牛肉、两层吉士，不多不少恰好对称——正义牌的审美就是平衡，一口咬下去两边都得有。",
+      "item": {
+        "sku": "1120",
+        "name": "双层吉士汉堡",
+        "price": 23.0,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260309/product/MS_1120_320.png",
+        "category": "汉堡"
+      },
+      "dim": "career"
+    },
+    {
+      "choice": 13,
+      "id": 12,
+      "name": "倒吊人",
+      "en": "The Hanged Man",
+      "roman": "XII",
+      "element": "海王星",
+      "mood": "换个视角",
+      "keywords": [
+        "暂停即前进",
+        "反向思考",
+        "甘愿等待"
+      ],
+      "upright": "他自愿倒挂着，头上是灵光。眼前的停滞不是卡住，是宇宙在让你换个角度看这件事。今天推进不动就别推了，去做别的，回来时会发现解法一直在头顶上。",
+      "reversed": "逆位的倒吊人是白白消耗：明明已经在拖了，还要说服自己「这是在等待时机」。今天给等待设一个截止日，到点就动。",
+      "pair_reason": "热浓缩自上而下浇在确定好的冰淇淋上，就是一个刻意的「倒置」——倒吊人最擅长把事情反过来做，然后发现味道对了。",
+      "item": {
+        "sku": "514850",
+        "name": "抹茶阿芙佳朵",
+        "price": 15.0,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_514850_320.png",
+        "category": "麦咖啡"
+      },
+      "dim": "social"
+    },
+    {
+      "choice": 14,
+      "id": 13,
+      "name": "死神",
+      "en": "Death",
+      "roman": "XIII",
+      "element": "天蝎座",
+      "mood": "结束·新生",
+      "keywords": [
+        "彻底翻篇",
+        "断舍离",
+        "转型"
+      ],
+      "upright": "牌面是白玫瑰上的黑旗——它从不预言死亡，只预言结束。今天适合彻底关掉一件事：删掉囤积的文件、结束一段耗尽的关系、砍掉一个早就没用的业务线。结束之后空出来的位置，才是新东西要来的地方。",
+      "reversed": "逆位的死神是抓着不肯放：明知该结束，还在续命。今天不需要你立刻做决定，只需要承认——它已经结束了。",
+      "pair_reason": "浓到发苦的可可，是先把旧的味觉清干净，再留余香——告别就该是这个味道，苦一点，但彻底。",
+      "item": {
+        "sku": "515946",
+        "name": "浓浓黑巧（冰/热）",
+        "price": 13.9,
+        "original_price": 21.0,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/20261008/product/MS_G515945_320.gif",
+        "category": "麦咖啡（促销价）"
+      },
+      "dim": "love"
+    },
+    {
+      "choice": 15,
+      "id": 14,
+      "name": "节制",
+      "en": "Temperance",
+      "roman": "XIV",
+      "element": "射手座",
+      "mood": "调和·节奏",
+      "keywords": [
+        "适度",
+        "长期主义",
+        "调到平衡"
+      ],
+      "upright": "天使在两只杯子之间倒水，水不溢出。今天的关键是「配比」：工作的强度、花的钱、说的分寸、休息的量。任何走极端的做法今天都会反弹，把节奏调到七分，反而走得更远。",
+      "reversed": "逆位的节制是失了比例——过度消费、过度加班、过度承诺。今天挑一样先减半，立刻会有余裕感回来。",
+      "pair_reason": "一份被水稀释得刚刚好的美式，是节制最直白的教具：少了没味道，多了就焦躁，七分刚好。",
+      "item": {
+        "sku": "507411",
+        "name": "麦咖啡™美式",
+        "price": 11.9,
+        "original_price": 19.0,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_G507374_320.gif",
+        "category": "麦咖啡（促销价）"
+      },
+      "dim": "health"
+    },
+    {
+      "choice": 16,
+      "id": 15,
+      "name": "恶魔",
+      "en": "The Devil",
+      "roman": "XV",
+      "element": "摩羯座",
+      "mood": "欲望·上瘾",
+      "keywords": [
+        "被诱惑",
+        "明知不该",
+        "看清锁链"
+      ],
+      "upright": "牌上的锁链其实是松的——困住人的从来不是欲望本身，而是「我正在被它控制」的叙事。今天看清自己的那个锁：刷到停不下来的软件、戒不掉的人、让人上头的消费。看清的瞬间，你就已经自由了一半。",
+      "reversed": "逆位的恶魔是好消息：你正在挣脱。今天的你会比昨天更不容易被同一件事勾走，趁这个劲头，把那个坏习惯的入口堵死。",
+      "pair_reason": "明知道辣会后悔，还是忍不住点它——这是欲望最诚实的样子。恶魔牌不批判，它只是要你承认：值得。",
+      "item": {
+        "sku": "1440",
+        "name": "麦辣鸡腿汉堡",
+        "price": 22.5,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260325/product/MS_1440_320.png",
+        "category": "汉堡"
+      },
+      "dim": "wealth"
+    },
+    {
+      "choice": 17,
+      "id": 16,
+      "name": "塔",
+      "en": "The Tower",
+      "roman": "XVI",
+      "element": "火星",
+      "mood": "崩塌·重建",
+      "keywords": [
+        "计划打破",
+        "突发状况",
+        "拆了重来"
+      ],
+      "upright": "闪电击穿高塔，人从塔上坠落——这是唯一一张「坏事变好事」的牌，因为它清理的是本来就不稳的东西。今天可能有突发变动、取消、被否、被放鸽子。别抢救，先看清楚塌下来的到底是什么。",
+      "reversed": "逆位的塔是「一直在裂缝里糊墙」。你在拖延一场必然会来的坍塌，今天主动掀掉一小块，比整座塌下来便宜太多。",
+      "pair_reason": "全菜单里最高的一座堡，层数最多、最容易塌——吃它需要先接受「我会吃得不太好」，这正是塔牌的训练：允许失控。",
+      "item": {
+        "sku": "511781",
+        "name": "培根安格斯厚牛堡",
+        "price": 34.5,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260309/product/MS_511781_320.png",
+        "category": "安格斯MAX厚牛堡"
+      },
+      "dim": "career"
+    },
+    {
+      "choice": 18,
+      "id": 17,
+      "name": "星星",
+      "en": "The Star",
+      "roman": "XVII",
+      "element": "水瓶座",
+      "mood": "希望·疗愈",
+      "keywords": [
+        "低潮之后",
+        "灵感回来",
+        "许愿"
+      ],
+      "upright": "她在黑夜之后倒水入池，天上有八颗星。这是塔之后的第一张牌——最坏的部分已经过去了。今天适合恢复信心、重启计划、许愿、做一件纯粹因为喜欢而做的事。此刻的你还不够强，但方向已经对了。",
+      "reversed": "逆位的星星是希望感暂时断线。你不是放弃了，你只是累了。今天不求进展，只求一点点「还想继续」的微光，那就够了。",
+      "pair_reason": "爆爆珠在齿间一颗颗炸开，像夜里突然亮起来的星星——希望在暗处，一口咬下去才知道。",
+      "item": {
+        "sku": "521950",
+        "name": "蓝莓爆爆珠麦旋风",
+        "price": 16.5,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G521950_320.gif",
+        "category": "冰淇淋"
+      },
+      "dim": "love"
+    },
+    {
+      "choice": 19,
+      "id": 18,
+      "name": "月亮",
+      "en": "The Moon",
+      "roman": "XVIII",
+      "element": "双鱼座",
+      "mood": "朦胧·潜意识",
+      "keywords": [
+        "看不清",
+        "焦虑放大",
+        "梦与直觉"
+      ],
+      "upright": "双犬吠月，水滴从池中升起。今天的信息是模糊的：别人才说一半、局面还在变、你看不清对方的真实想法。别在雾里做重大决定，尤其是涉及人和钱的。睡一觉，明天同样的局面会清楚十倍。",
+      "reversed": "逆位的月亮代表雾正在散：之前的误会开始澄清，被压抑的情绪浮出水面。今天适合把憋了很久的话说出来，说完你会发现没那么可怕。",
+      "pair_reason": "深灰色的奶霜旋成一圈暗夜漩涡——月亮牌的夜晚不适合明亮的答案，适合一口凉下来的沉静。",
+      "item": {
+        "sku": "521951",
+        "name": "灰焰圆筒",
+        "price": 5.0,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G521951_320.gif",
+        "category": "冰淇淋"
+      },
+      "dim": "social"
+    },
+    {
+      "choice": 20,
+      "id": 19,
+      "name": "太阳",
+      "en": "The Sun",
+      "roman": "XIX",
+      "element": "太阳",
+      "mood": "高光·坦荡",
+      "keywords": [
+        "被看见",
+        "能量满格",
+        "值得庆祝"
+      ],
+      "upright": "孩子骑着白马，身后是盛放的向日葵。这是全副牌里最阳光的一张：今天的你被看见、被喜欢、被认可。适合公开发言、发作品、表白、谈条件、拍一张好看的照片。能量是满的，别藏着用。",
+      "reversed": "逆位的太阳是「明明很好，却不敢承认好」。你在担心一件还没发生的事。今天允许自己开心久一点——快乐不需要先交申请。",
+      "pair_reason": "带着橙子香气的气泡感，一口下去像有人把窗帘拉开——太阳牌就该是明亮的、冒泡的、藏不住的。",
+      "item": {
+        "sku": "6352",
+        "name": "阳光橙麦炫酷",
+        "price": 13.0,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_6352_320.png",
+        "category": "饮品"
+      },
+      "dim": "career"
+    },
+    {
+      "choice": 21,
+      "id": 20,
+      "name": "审判",
+      "en": "Judgement",
+      "roman": "XX",
+      "element": "冥王星",
+      "mood": "清算·召唤",
+      "keywords": [
+        "重新审视",
+        "该回应了",
+        "旧事回响"
+      ],
+      "upright": "天使吹响号角，旧事被打捞出水面。今天会有「回头来找你」的东西：旧同事、旧提案、久未联系的贵人，或者某个你一直逃着没做的事。适合复盘、结案、给过去一个交代。回应的那一刻，你会听见自己真正的召唤。",
+      "reversed": "逆位的审判是自我审判过重。你对自己太苛刻了，那些「早就该做到」的标准，本来就不是今天的你该背的。今天先赦免自己一次。",
+      "pair_reason": "审判牌讲的是被唤醒，一天里最诚实的唤醒方式就是一杯干净提神的现煮咖啡。",
+      "item": {
+        "sku": "520689",
+        "name": "鲜萃咖啡",
+        "price": 9.5,
+        "original_price": null,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250324/product/MS_G520688_320.gif",
+        "category": "麦咖啡"
+      },
+      "dim": "career"
+    },
+    {
+      "choice": 22,
+      "id": 21,
+      "name": "世界",
+      "en": "The World",
+      "roman": "XXI",
+      "element": "土星",
+      "mood": "圆满·收尾",
+      "keywords": [
+        "闭环",
+        "感谢自己",
+        "进入下一关"
+      ],
+      "upright": "花环合拢，四角守护者各就各位。这是大阿尔卡那的最后一张——一件事在今天可以画上句号。适合验收、交付、交稿、结项、给自己庆功。今天务必做一件事：好好谢谢那个撑到现在的自己。",
+      "reversed": "逆位的世界是「差临门一脚」：99% 都做完了，只剩最后一哆嗦没哆嗦。今天别开新坑，把旧的收干净就是最大的进展。",
+      "pair_reason": "主食、小食、饮品各就各位的一次完整闭环——世界牌讲的就是「什么都不缺」，用它给今天收尾刚刚好。",
+      "item": {
+        "sku": "9900004064",
+        "name": "精选单人餐三件套",
+        "price": 34.5,
+        "original_price": 46.0,
+        "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260824/product/MS_9900004064_320.gif",
+        "category": "精选单人餐"
+      },
+      "dim": "wealth"
+    }
+  ]
+}

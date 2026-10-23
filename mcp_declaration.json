@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "declaration_type": "skill-mcp-dependency",
+  "skill": {
+    "name": "mcd-tarot-fortune",
+    "title": "麦当劳塔罗运势",
+    "version": "1.0.0",
+    "created_at": "2026-10-23",
+    "runtime": "python3 (stdlib only)",
+    "entrypoint": "scripts/fortune.py",
+    "offline_capable": true,
+    "description": "生日/星座/生命灵数 + 真实月相生成五维运势，1-22 选号抽大阿尔卡那塔罗牌，揭晓绑定的麦当劳在售商品与「为什么今天适合吃它」"
+  },
+  "mcp": {
+    "provider": "mcd-mcp",
+    "display_name": "麦当劳点餐",
+    "required": false,
+    "reason": "本技能离线即可完成占卜全流程（月相本地计算、菜单为采集快照）。MCP 仅在【价格校准】与【真实下单】两个时机介入，属于增强项而非前置依赖。",
+    "unavailable_behavior": "直接用 data/tarot_cards.json 内的快照价，并保留价格脚注与免责说明；不编造实时价、不谎称已核价。"
+  },
+  "tools": {
+    "read_only": [
+      {
+        "name": "query-nearby-stores",
+        "purpose": "按城市+关键词查到店可点餐门店，取 storeCode / beCode",
+        "key_params": {
+          "beType": "1=到店自提（无 beCode），5=得来速（必传 beCode）",
+          "searchType": "2=按位置搜索（需 city + keyword）",
+          "city": "城市名",
+          "keyword": "位置关键词"
+        }
+      },
+      {
+        "name": "delivery-query-stores",
+        "purpose": "外送（麦乐送）场景下查门店并取 beCode",
+        "used_when": "用户选麦乐送到家（beType=2）或企业团餐（beType=6）"
+      },
+      {
+        "name": "query-meals",
+        "purpose": "拉该门店菜单，按 SKU 取该店当日的 currentPrice 与 productCode",
+        "key_params": {
+          "storeCode": "门店编码（必填）",
+          "orderType": "1=到店（自提/得来速），2=外送（麦乐送/团餐）",
+          "beType": "1/2/5/6",
+          "beCode": "得来速与外送场景必传"
+        }
+      },
+      {
+        "name": "query-meal-detail",
+        "purpose": "查套餐组成与特调选项（用户主动问「能不能换」时才调）",
+        "key_params": { "code": "餐品唯一编码" }
+      },
+      {
+        "name": "calculate-price",
+        "purpose": "计算含优惠的最终价格；返回单位为【分】，展示需 ÷100",
+        "key_params": {
+          "items": "productCode + quantity（+ 可选 couponId/couponCode/modification）",
+          "needTableware": "是否需要餐具"
+        }
+      },
+      {
+        "name": "available-coupons",
+        "purpose": "查可用优惠券（用户问「有没有更便宜」时）"
+      }
+    ],
+    "write": [
+      {
+        "name": "create-order",
+        "purpose": "创建真实订单",
+        "guard": "require_explicit_user_confirmation",
+        "guard_note": "必须展示门店、商品、实付金额后，由用户明确说「下单/确认」才调用。绝不在占卜环节自动下单，绝不代付。"
+      }
+    ]
+  },
+  "triggers": [
+    {
+      "when": "用户问「我这附近多少钱」「我这边是不是这个价」「现在还卖吗」",
+      "action": "price_recalibration",
+      "chain": ["query-nearby-stores", "query-meals", "calculate-price"]
+    },
+    {
+      "when": "用户说「我要买」「下单」「来一份」",
+      "action": "order_flow",
+      "chain": ["query-nearby-stores", "query-meals", "calculate-price", "create-order"]
+    },
+    {
+      "when": "用户说「外送」「麦乐送」「送到公司」",
+      "action": "delivery_flow",
+      "chain": ["delivery-query-stores", "query-meals", "calculate-price", "create-order"]
+    },
+    {
+      "when": "只是占卜 / 抽牌 / 看运势",
+      "action": "no_mcp_call",
+      "chain": []
+    }
+  ],
+  "data_mapping": {
+    "skill_to_mcp": {
+      "item.sku": "query-meals 返回的商品 code / calculate-price 的 productCode"
+    },
+    "mcp_to_skill": {
+      "currentPrice": "覆盖 item.price 展示，单位分 → 元（÷100）",
+      "storeCode": "覆盖 meta.source_store 展示",
+      "storeName": "覆盖价格脚注中的门店名"
+    }
+  },
+  "fallback": {
+    "store_query_failed": "回退到内置门店 1450713（上海黄浦华旭国际大厦餐厅）快照价，并注明「未能获取你附近的门店」",
+    "menu_query_failed": "保留快照价 + 免责脚注，说明价格可能浮动 ±10%",
+    "sku_missing": "说明该商品在该店/该时段不可售，推荐同价位替代（仍来自 22 张牌映射表），不编 SKU",
+    "price_divergence": "以 MCP 实时价为准，并说明与快照价的差异原因（城市/渠道/时段）"
+  },
+  "permissions": {
+    "auto_execute": ["query-nearby-stores", "delivery-query-stores", "query-meals", "query-meal-detail", "calculate-price", "available-coupons"],
+    "require_confirmation": ["create-order"],
+    "never": ["代用户支付", "读取或存储支付信息", "在未确认门店的情况下下单", "修改 22 张牌的商品映射"]
+  },
+  "privacy": {
+    "stored_locally": ["birthday", "occupation", "city", "draw_history（最多 100 条）"],
+    "never_stored": ["手机号", "地址", "支付信息", "账号凭证"]
+  }
+}
